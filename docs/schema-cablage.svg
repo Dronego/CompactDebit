@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+  <defs>
+    <style>
+      .bg { fill: #f7f7f4; }
+      .board { fill: #0f766e; stroke: #083f3b; stroke-width: 3; }
+      .module { fill: #ffffff; stroke: #2f2f2f; stroke-width: 3; }
+      .sensor { fill: #fef3c7; stroke: #92400e; stroke-width: 3; }
+      .part { fill: #e5e7eb; stroke: #525252; stroke-width: 2; }
+      .pin { fill: #f9fafb; stroke: #111827; stroke-width: 2; }
+      .text { font-family: Arial, Helvetica, sans-serif; fill: #171717; }
+      .title { font-size: 32px; font-weight: 700; }
+      .label { font-size: 20px; font-weight: 700; }
+      .small { font-size: 16px; }
+      .tiny { font-size: 14px; }
+      .wire5v { fill: none; stroke: #dc2626; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .wire3v { fill: none; stroke: #f97316; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .wiregnd { fill: none; stroke: #111827; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .wirescl { fill: none; stroke: #2563eb; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .wiresda { fill: none; stroke: #16a34a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .wiresig { fill: none; stroke: #9333ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="780"/>
+
+  <text x="60" y="60" class="text title">Schema de cablage - QT Py ESP32-S3, SSD1306 et YF-B7</text>
+  <text x="60" y="92" class="text small">Le signal du YF-B7 doit etre ramene a 3,3 V avant l'entree A0 de l'ESP32-S3.</text>
+
+  <!-- QT Py board -->
+  <rect x="455" y="185" width="290" height="410" rx="28" class="board"/>
+  <text x="500" y="232" class="text label" fill="#ffffff">Adafruit QT Py</text>
+  <text x="505" y="260" class="text small" fill="#ffffff">ESP32-S3</text>
+
+  <rect x="540" y="292" width="120" height="88" rx="12" fill="#065f46" stroke="#083f3b" stroke-width="2"/>
+  <text x="563" y="342" class="text small" fill="#ffffff">USB-C</text>
+
+  <!-- QT Py pins left -->
+  <rect x="430" y="455" width="70" height="30" rx="5" class="pin"/>
+  <text x="442" y="476" class="text tiny">A0</text>
+  <rect x="430" y="500" width="70" height="30" rx="5" class="pin"/>
+  <text x="438" y="521" class="text tiny">GND</text>
+  <rect x="430" y="545" width="70" height="30" rx="5" class="pin"/>
+  <text x="444" y="566" class="text tiny">5V</text>
+
+  <!-- QT Py pins right / STEMMA QT -->
+  <rect x="700" y="405" width="90" height="30" rx="5" class="pin"/>
+  <text x="716" y="426" class="text tiny">SDA 41</text>
+  <rect x="700" y="450" width="90" height="30" rx="5" class="pin"/>
+  <text x="716" y="471" class="text tiny">SCL 40</text>
+  <rect x="700" y="495" width="90" height="30" rx="5" class="pin"/>
+  <text x="724" y="516" class="text tiny">3V</text>
+  <rect x="700" y="540" width="90" height="30" rx="5" class="pin"/>
+  <text x="724" y="561" class="text tiny">GND</text>
+
+  <!-- OLED -->
+  <rect x="875" y="300" width="235" height="230" rx="14" class="module"/>
+  <rect x="900" y="330" width="185" height="92" rx="6" fill="#111827"/>
+  <text x="920" y="382" class="text label" fill="#ffffff">SSD1306</text>
+  <text x="910" y="454" class="text small">OLED I2C 128x64</text>
+  <rect x="850" y="485" width="88" height="28" rx="5" class="pin"/>
+  <text x="866" y="505" class="text tiny">VCC</text>
+  <rect x="850" y="530" width="88" height="28" rx="5" class="pin"/>
+  <text x="866" y="550" class="text tiny">GND</text>
+  <rect x="850" y="395" width="88" height="28" rx="5" class="pin"/>
+  <text x="866" y="415" class="text tiny">SDA</text>
+  <rect x="850" y="440" width="88" height="28" rx="5" class="pin"/>
+  <text x="866" y="460" class="text tiny">SCL</text>
+
+  <!-- YF-B7 sensor -->
+  <rect x="70" y="270" width="230" height="190" rx="20" class="sensor"/>
+  <circle cx="185" cy="365" r="55" fill="#fde68a" stroke="#92400e" stroke-width="3"/>
+  <path d="M170 330 C210 344 210 386 170 400" fill="none" stroke="#92400e" stroke-width="6" stroke-linecap="round"/>
+  <text x="124" y="245" class="text label">YF-B7</text>
+  <text x="86" y="488" class="text small">Capteur de debit</text>
+
+  <rect x="300" y="300" width="86" height="28" rx="5" class="pin"/>
+  <text x="318" y="320" class="text tiny">Rouge</text>
+  <rect x="300" y="350" width="86" height="28" rx="5" class="pin"/>
+  <text x="322" y="370" class="text tiny">Noir</text>
+  <rect x="300" y="400" width="86" height="28" rx="5" class="pin"/>
+  <text x="318" y="420" class="text tiny">Jaune</text>
+
+  <!-- divider -->
+  <rect x="210" y="570" width="280" height="112" rx="12" class="module"/>
+  <text x="238" y="600" class="text label">Adaptation signal 5 V - 3,3 V</text>
+  <rect x="295" y="625" width="88" height="22" rx="4" class="part"/>
+  <text x="307" y="642" class="text tiny">10 kOhm</text>
+  <rect x="396" y="650" width="22" height="60" rx="4" class="part"/>
+  <text x="423" y="684" class="text tiny">20 kOhm</text>
+  <circle cx="392" cy="636" r="6" fill="#9333ea"/>
+  <text x="275" y="672" class="text tiny">entree depuis fil jaune</text>
+  <text x="420" y="632" class="text tiny">vers A0</text>
+
+  <!-- wires sensor power -->
+  <path class="wire5v" d="M386 314 C420 314 410 560 430 560"/>
+  <path class="wire5v" d="M430 560 L430 560"/>
+  <text x="392" y="290" class="text tiny" fill="#dc2626">5 V</text>
+
+  <path class="wiregnd" d="M386 364 C405 364 405 515 430 515"/>
+  <text x="392" y="350" class="text tiny">GND commun</text>
+
+  <!-- yellow signal to divider -->
+  <path class="wiresig" d="M386 414 C430 414 150 636 295 636"/>
+  <path class="wiresig" d="M383 636 C410 636 420 470 430 470"/>
+  <path class="wiregnd" d="M407 710 C407 735 468 735 468 515"/>
+
+  <!-- OLED wires -->
+  <path class="wiresda" d="M790 420 L850 409"/>
+  <path class="wirescl" d="M790 465 L850 454"/>
+  <path class="wire3v" d="M790 510 L850 499"/>
+  <path class="wiregnd" d="M790 555 L850 544"/>
+
+  <!-- Labels for OLED wires -->
+  <text x="805" y="400" class="text tiny" fill="#16a34a">SDA</text>
+  <text x="805" y="446" class="text tiny" fill="#2563eb">SCL</text>
+  <text x="805" y="494" class="text tiny" fill="#f97316">3V</text>
+  <text x="805" y="584" class="text tiny">GND</text>
+
+  <!-- Callouts -->
+  <rect x="60" y="625" width="122" height="70" rx="8" fill="#ffffff" stroke="#d4d4d4" stroke-width="2"/>
+  <text x="78" y="653" class="text small" fill="#dc2626">Rouge = 5 V</text>
+  <text x="78" y="678" class="text small">Noir = GND</text>
+  <text x="78" y="703" class="text small" fill="#9333ea">Jaune = signal</text>
+
+  <rect x="650" y="625" width="470" height="76" rx="8" fill="#ffffff" stroke="#d4d4d4" stroke-width="2"/>
+  <text x="674" y="654" class="text small">Important: ne jamais envoyer directement un signal 5 V sur une entree ESP32-S3.</text>
+  <text x="674" y="682" class="text small">Le pont 10 kOhm / 20 kOhm donne environ 3,3 V a partir de 5 V.</text>
+</svg>
