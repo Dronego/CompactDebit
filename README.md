@@ -2,6 +2,8 @@
 
 Base firmware Arduino/PlatformIO pour afficher le debit et le volume d'eau, avec etalonnage via Wi-Fi.
 
+![Schema de cablage](docs/schema-cablage.svg)
+
 ## Materiel
 
 - Adafruit QT Py ESP32-S3.
